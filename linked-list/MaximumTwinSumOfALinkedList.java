@@ -9,7 +9,7 @@ public class MaximumTwinSumOfALinkedList {
         }
     }
     
-    HashSet<Integer> set=new HashSet<>();
+    //HashSet<Integer> set=new HashSet<>();
     public int maxTwinSum(Node head) {
         Node slow=head;
         Node fast=head;
@@ -27,14 +27,16 @@ public class MaximumTwinSumOfALinkedList {
         }
         Node left=head;
         Node right=prev;
+        int maxTwinSum=0;
         while(right!=null) {
             int sum=left.val+right.val;
-            set.add(sum);
+            //set.add(sum);
+            maxTwinSum=Math.max(maxTwinSum,sum);
             left=left.next;
             right=right.next;
         }
-        int max=Collections.max(set);
-        return max;
+        //int max=Collections.max(set);
+        return maxTwinSum;
     }
 
     public void printList(Node head) {
